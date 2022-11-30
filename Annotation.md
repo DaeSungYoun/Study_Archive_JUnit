@@ -88,7 +88,7 @@
     }
     ```
     
-- @Ignore
+- @Disabled
     - 테스트를 실행하지 않음
 
 
@@ -98,3 +98,6 @@
 - @CsvSource
 - @ValueSource
 - @DomainArgumentsSource
+- @RepeatedTest
+- @Tag
+
