@@ -36,7 +36,7 @@
     }
     ```
     
-    ![Untitled](JUnit%20Annotation%207846899c37ed4543ae5f46258b161cb2/Untitled.png)
+    ![Untitled](https://user-images.githubusercontent.com/38457303/204723836-8b57c098-8181-49ae-9921-6a9016e9004b.png)
     
 - @Timeout
     - assertTimeout(Duration timeout, Executable executable)
@@ -90,3 +90,11 @@
     
 - @Ignore
     - 테스트를 실행하지 않음
+
+
+
+---
+- @ParameterizedTest
+- @CsvSource
+- @ValueSource
+- @DomainArgumentsSource
