@@ -75,6 +75,14 @@ public class AssertThatException {
     }
 
     @Test
+    @DisplayName("assertThatCode 테스트")
+    void assertThatCodeTest() {
+        assertThatCode(() -> {
+            System.out.println("Hi");
+        }).doesNotThrowAnyException();
+    }
+
+    @Test
     @DisplayName("assertThatNoException 테스트")
     void assertThatNoExceptionTest() {
         assertThatNoException().isThrownBy(() -> {
