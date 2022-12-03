@@ -1,8 +1,8 @@
 ## 목차
 
 1. [@Test](#@Test)
-2. [@BeforeEach, @BeforeAll](#BeforeEach,-@BeforeAll)
-3. [@AfterEach, @AfterAll](#AfterEach,-@AfterAll)
+2. [@BeforeEach, @BeforeAll](#BeforeEach,-BeforeAll)
+3. [@AfterEach, @AfterAll](#AfterEach,-AfterAll)
 4. [@Nested](#Nested)
 5. [@Timeout](#Timeout)
 6. [@Disabled](#Disabled)
