@@ -260,7 +260,12 @@
 
     - @ArgumentsSource
     - @VariableSource
----
+
 - @RepeatedTest
+    - 반복 테스트 용도
+    - RepetitionInfo 인자를 받을 수 있음(@RepeatedTest 어노테이션이 있어야만 받을 수 있음)
+
+---
+
 - @Tag
 
