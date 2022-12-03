@@ -1,13 +1,13 @@
 ## 목차
 
-1. [@Test](#@Test)
-2. [@BeforeEach, @BeforeAll](#BeforeEach,-BeforeAll)
-3. [@AfterEach, @AfterAll](#AfterEach,-AfterAll)
-4. [@Nested](#Nested)
-5. [@Timeout](#Timeout)
-6. [@Disabled](#Disabled)
-7. [@ParameterizedTest](#ParameterizedTest)
-8. [@RepeatedTest](#RepeatedTest)
+1. [@Test](#test)
+2. [@BeforeEach, @BeforeAll](#beforeeach-beforeall)
+3. [@AfterEach, @AfterAll](#aftereach-afterall)
+4. [@Nested](#nested)
+5. [@Timeout](#timeout)
+6. [@Disabled](#disabled)
+7. [@ParameterizedTest](#parameterizedtest)
+8. [@RepeatedTest](#repeatedtest)
 
 
 ## @Test
