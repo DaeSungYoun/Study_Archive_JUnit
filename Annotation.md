@@ -8,6 +8,14 @@
 6. [@Disabled](#disabled)
 7. [@ParameterizedTest](#parameterizedtest)
 8. [@RepeatedTest](#repeatedtest)
+9. [@SpringBootTest](#springboottest)
+10. [@ExtendWith](#extendwith)
+11. [@WebMvcTest](#webmvctest)
+12. [@MockMvc](#mockmvc)
+13. [@MockBean, @Mock](#mockbean-mock)
+14. [@AutoConfigureMockMvc](#autoconfiguremockmvc)
+15. [@Import](#import)
+16. [@DisplayName, @DisplayNameGeneration](#displayname-displaynamegeneration)
 
 
 ## @Test
@@ -103,7 +111,7 @@
 
 ## @ParameterizedTest
  - https://www.baeldung.com/parameterized-tests-junit-5#first-impression
- - Dependencies
+ - Dependency
     ```java
     testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-params', version: '5.9.0'
     ```
@@ -269,7 +277,93 @@
  - 반복 테스트 용도
  - RepetitionInfo 인자를 받을 수 있음(@RepeatedTest 어노테이션이 있어야만 받을 수 있음)
 
----
+## @SpringBootTest
+ - 통합 테스트 용도
+ - @SpringBootApplication을 찾아가 하위의 모든 Bean을 스캔하여 로드함
+ - 그 후 Test용 Application Context를 만들어 Bean을 추가하고, MockBean을 찾아서 교체함
+ - Dependency 추가, spring-boot-starter-test
+	```java
+	testImplementation group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: '3.0.0'
+	```
+ - @SpringBootTest 하위 어노테이션
+	 ```java
+	 @Target(ElementType.TYPE)  
+	@Retention(RetentionPolicy.RUNTIME)  
+	@Documented  
+	@Inherited  
+	@BootstrapWith(SpringBootTestContextBootstrapper.class)  
+	@ExtendWith(SpringExtension.class)  
+	public @interface SpringBootTest {
+	```
 
+## @ExtendWith
+ - JUnit4에서 @RunWith로 사용되던 어노테이션이 ExtendWith로 변경됨
+ - 확장을 선언적으로 등록할 떄 사용
+ - @ExtendWith는 메인으로 실행될 Class를 지정할 수 있음
+ - @SpringBootTest는 기본적으로 @ExtendWith가 추가 되어 있음
+
+## @WebMvcTest
+ - @WebMvcTest(클래스명.class)
+ - 괄호에 작성된 클래스만 실제로 로드하여 테스트를 진행
+ - 매개변수를 지정해주지 않으면 @Controller, @RestController, @RestControllerAdvice등 컨트롤러와 연관된 Bean이 모두 로드됨
+ - 스프링의 모든 Bean을 로드하는 @SpringBootTest 대신 컨트롤러 관련 코드만 테스트할 경우 사용
+
+## @MockMvc
+ - 서블릿 컨테이너의 구동 없이 시뮬레이션된 MVC 환경에 모의 HTTP 서블릿 요청을 전송하는 기능을 제공하는 유틸리티 클래스
+ - Controller의 API를 테스트하는 용도인 MockMvc 객체를 주입 받음
+ - perform() 메소드를 활용하여 컨트롤러의 동작을 확인할 수 있음
+ - .andExpect(), .andDo(), .andReturn()등의 메소드를 같이 활용함
+ - 테스트할 클래스에서 주입받고 있는 객체에 대해 가짜 객체를 생성해주는 어노테이션
+
+## @MockBean, @Mock
+- 
+
+## @AutoConfigureMockMvc
+ - spring, test, mockmvc의 설정을 로드하면서 MockMvc의 의존성을 자동으로 주입
+ - MockMvc 클래스는 RestAPI 테스트를 할 수 있는 클래스
+
+## @Import
+ - 필요한 Class들을 Configuration으로 만들어 사용할 수 있음
+ - Configuration Component 클래스도 의존성 설정할 수 있음
+ - Import된 클래스는 주입으로 사용 가능
+
+## @DisplayName, @DisplayNameGeneration
+- @DisplayName
+	``` java
+	import org.junit.jupiter.api.DisplayName;
+	import org.junit.jupiter.api.Test;
+
+	@DisplayName("I'm a Test Class")
+	public class DisplayNameCustomTest {
+
+		@Test
+		@DisplayName("Test with spaces, expected ok")
+		void test_spaces_ok() {
+		}
+
+		@DisplayName("Test with spaces, expected failed")
+		@Test
+		void test_spaces_fail() {
+		}
+	}
+	```
+- @DisplayNameGeneration
+	``` java
+	@DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
+	@DisplayNameGeneration(DisplayNameGenerator.IndicativeSentences.class)
+	@DisplayNameGeneration(DisplayNameGenerator.Simple.class)
+	@DisplayNameGeneration(DisplayNameGenerator.Standard.class)
+	```
+- @DisplayNameGeneration Custom
+	- [링크](https://github.com/eugenp/tutorials/blob/950bbadc353bdca114befc98cf4a18476352220e/testing-modules/junit-5-advanced/src/test/java/com/baeldung/displayname/DisplayNameGeneratorUnitTest.java)
+
+---
+- @AggregatedWith
 - @Tag
+- @Enabledxxxx, @Disabledxxxx
+- @TestInstance
+- @TestMethodOrder
+- @Order
+- @RegisterExtension
+- @Retention
 
