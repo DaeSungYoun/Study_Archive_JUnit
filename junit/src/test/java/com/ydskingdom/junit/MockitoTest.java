@@ -2,10 +2,9 @@ package com.ydskingdom.junit;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.mockito.ArgumentMatcher;
 import org.mockito.InOrder;
-import org.mockito.Mock;
 
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -173,9 +172,54 @@ public class MockitoTest {
         mockedList.add("one");
         mockedList.add("two");
 
-        verify(mockedList).add("one");
+        verify(mockedList, never()).add("one");
         verify(mockedList).add("two");
 
         verifyNoMoreInteractions(mockedList);
+    }
+
+    @Test
+    void testCase9() {
+        List mockList = mock(List.class);
+
+        when(mockList.get(0)).thenReturn(10, 20);
+        assertThat(mockList.get(0)).isEqualTo(10);
+        assertThat(mockList.get(0)).isEqualTo(20);
+
+        when(mockList.get(0)).thenReturn(30).thenReturn(40);;
+        assertThat(mockList.get(0)).isEqualTo(30);
+        assertThat(mockList.get(0)).isEqualTo(40);
+    }
+
+    @Test
+    void testCase10() {
+        Iterator<Integer> iterator = mock(Iterator.class);
+        when(iterator.hasNext()).thenReturn(true, true, true, false);
+        when(iterator.next()).thenReturn(10, 20, 30);
+        while (iterator.hasNext()) {
+            System.out.println(iterator.next());
+        }
+    }
+
+    @Test
+    void testCase11() {
+        List mockList = mock(List.class);
+
+        when(mockList.get(0)).thenThrow(new RuntimeException("error!"));
+
+        assertThatThrownBy(() -> {
+            mockList.get(0);
+        }).isExactlyInstanceOf(RuntimeException.class).hasMessage("error!");
+    }
+
+    @Test
+    void testCase12() {
+        List mockList = mock(List.class);
+
+        doThrow(new RuntimeException("doThrow error")).when(mockList).get(0);
+
+        assertThatThrownBy(() -> {
+            mockList.get(0);
+        }).isExactlyInstanceOf(RuntimeException.class).hasMessage("doThrow error");
     }
 }
