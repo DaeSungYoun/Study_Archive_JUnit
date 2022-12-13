@@ -1,0 +1,139 @@
+{
+  "main": {
+    "id": "293b1c074f6602ff",
+    "type": "split",
+    "children": [
+      {
+        "id": "fbb9c2a3a5e9f528",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "11e404dfa7a22213",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "22a6dfc5f459efa5",
+    "type": "split",
+    "children": [
+      {
+        "id": "fd28fe6572a653b1",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "5296d81342e71fb8",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "39e5ab72a2d92d68",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "4ec472900914dfd4",
+            "type": "leaf",
+            "state": {
+              "type": "starred",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 200
+  },
+  "right": {
+    "id": "946e009e3a64ecb5",
+    "type": "split",
+    "children": [
+      {
+        "id": "9feda6d7d68cdba8",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "aae93cab24ded62c",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "00f9b9ed405868fc",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "ae53706963c0bc51",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "c1def7dc7cb10a5d",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "active": "11e404dfa7a22213",
+  "lastOpenFiles": [
+    "2022-12-07.md",
+    "Annotation.md",
+    "AssertJ.md",
+    "정리필요.md",
+    "README.md"
+  ]
+}
