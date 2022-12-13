@@ -1,6 +1,7 @@
 # Mockito Framework
 
 - https://javadoc.io/doc/org.mockito/mockito-core/latest/org/mockito/Mockito.html
+- https://github.com/mockito/mockito/wiki/Mockito-features-in-Korean
 
 ## Dependency
 - spring-boot-starter-test
@@ -51,6 +52,9 @@
             }
         }
         ```
+    - @Spy
+    - @Captor
+    - @InjectMocks
     ### Stubbing
     - when({스터빙 메소드}).{OngoingStubbing 메소드}
       - OngoingStubbing 메소드
@@ -111,6 +115,7 @@
     - given().willReturn()
     - given().willThrow()
     - given().will(invocation -> {})
+    - then().should().action()
     ### Argument Matchers
     - https://www.logicbig.com/tutorials/unit-testing/mockito/mockito-argument-matchers.html
     - https://www.baeldung.com/mockito-argument-matchers
