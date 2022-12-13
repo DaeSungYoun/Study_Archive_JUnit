@@ -52,45 +52,48 @@
         }
         ```
     ### Stubbing
-    - when().thenReturn();
-        ```java
-        @Test
-        void testCase9() {
-            List mockList = mock(List.class);
+    - when({스터빙 메소드}).{OngoingStubbing 메소드}
+      - OngoingStubbing 메소드
+        - thenReturn() : 스터빙 메소드 호출 후 어떤 객체를 리털할지 정의
+            ```java
+            @Test
+            void testCase9() {
+                List mockList = mock(List.class);
 
-            when(mockList.get(0)).thenReturn(10, 20);
-            assertThat(mockList.get(0)).isEqualTo(10);
-            assertThat(mockList.get(0)).isEqualTo(20);
+                when(mockList.get(0)).thenReturn(10, 20);
+                assertThat(mockList.get(0)).isEqualTo(10);
+                assertThat(mockList.get(0)).isEqualTo(20);
 
-            when(mockList.get(0)).thenReturn(30).thenReturn(40);;
-            assertThat(mockList.get(0)).isEqualTo(30);
-            assertThat(mockList.get(0)).isEqualTo(40);
-        }
-        ```
-        ```java
-        @Test
-        void testCase10() {
-            Iterator<Integer> iterator = mock(Iterator.class);
-            when(iterator.hasNext()).thenReturn(true, true, true, false);
-            when(iterator.next()).thenReturn(10, 20, 30);
-            while (iterator.hasNext()) {
-                System.out.println(iterator.next());
+                when(mockList.get(0)).thenReturn(30).thenReturn(40);;
+                assertThat(mockList.get(0)).isEqualTo(30);
+                assertThat(mockList.get(0)).isEqualTo(40);
             }
-        }
-        ```
-    - when().thenThrow();
-        ```java
-        @Test
-        void testCase11() {
-            List mockList = mock(List.class);
 
-            when(mockList.get(0)).thenThrow(new RuntimeException("error!"));
+            @Test
+            void testCase10() {
+                Iterator<Integer> iterator = mock(Iterator.class);
+                when(iterator.hasNext()).thenReturn(true, true, true, false);
+                when(iterator.next()).thenReturn(10, 20, 30);
+                while (iterator.hasNext()) {
+                    System.out.println(iterator.next());
+                }
+            }
+            ```
+        - thenThrow() : 스터빙 메소드 호출 후 어떤 Exception을 Throw할지 정의 
+            ```java
+            @Test
+            void testCase11() {
+                List mockList = mock(List.class);
 
-            assertThatThrownBy(() -> {
-                mockList.get(0);
-            }).isExactlyInstanceOf(RuntimeException.class).hasMessage("error!");
-        }
-        ```
+                when(mockList.get(0)).thenThrow(new RuntimeException("error!"));
+
+                assertThatThrownBy(() -> {
+                    mockList.get(0);
+                }).isExactlyInstanceOf(RuntimeException.class).hasMessage("error!");
+            }
+            ```
+        - thenAnswer() : 스터빙 메소드 호출 후 어떤 작업을 할지 custom하게 정의(Mockito javadoc에는 thenAnswer보단 then Return, thenThrow 메소드 권장)
+        - thenCallRealMethod() : 스터빙 메소드 호출 후 실제 메소드 호출
     - doThrow().when().doSomething();
         ```java
         @Test
@@ -104,6 +107,10 @@
             }).isExactlyInstanceOf(RuntimeException.class).hasMessage("doThrow error");
         }
         ```
+    ### BDDMockito
+    - given().willReturn()
+    - given().willThrow()
+    - given().will(invocation -> {})
     ### Argument Matchers
     - https://www.logicbig.com/tutorials/unit-testing/mockito/mockito-argument-matchers.html
     - https://www.baeldung.com/mockito-argument-matchers
