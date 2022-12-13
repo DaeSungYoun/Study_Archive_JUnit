@@ -15,7 +15,7 @@ public class AssertJTest {
         SoftAssertions softAssertions = new SoftAssertions();
         softAssertions.assertThat(number + number).as("test1").isEqualTo(2);
         softAssertions.assertThat(number * number).as("test2").isEqualTo(1);
-        softAssertions.assertThat(number - number).as("test3").isEqualTo(1);
+        softAssertions.assertThat(number - number).as("test3").isEqualTo(0);
         softAssertions.assertAll();
     }
 }
