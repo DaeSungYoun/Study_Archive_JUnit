@@ -111,6 +111,10 @@
             }).isExactlyInstanceOf(RuntimeException.class).hasMessage("doThrow error");
         }
         ```
+    - doAnswer()
+    - doNothing()
+    - doReturn()
+    - doXXXX()는 void 메소드를 Stubbing 할때 사용
     ### BDDMockito
     - given().willReturn()
     - given().willThrow()
